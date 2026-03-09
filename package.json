@@ -16,5 +16,9 @@
     "url": "https://github.com/daria-kuts/nodejs-hw/issues"
   },
   "homepage": "https://github.com/daria-kuts/nodejs-hw#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "http-errors": "^2.0.1",
+    "mongoose": "^9.2.4"
+  }
 }
