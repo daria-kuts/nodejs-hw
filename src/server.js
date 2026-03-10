@@ -7,8 +7,9 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
-import { errorHandler } from './middleware/errorHandler.js';
 import { errors } from 'celebrate';
+import { errorHandler } from './middleware/errorHandler.js';
+
 dotenv.config();
 
 const app = express();
@@ -22,6 +23,8 @@ app.use(express.json());
 
 app.use(notesRoutes);
 
+app.use(errors());
+
 app.use(notFoundHandler);
 
 app.use(errorHandler);
@@ -29,4 +32,3 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-app.use(errors());
