@@ -21,6 +21,7 @@ await connectMongoDB();
 app.use(logger);
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(notesRoutes);
 
@@ -33,4 +34,4 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-app.use(cookieParser());
+
