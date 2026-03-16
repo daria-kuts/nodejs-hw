@@ -16,9 +16,9 @@ import {
 } from '../controllers/notesController.js';
 import { authenticate } from '../middleware/authenticate.js';
 
-router.use(authenticate);
-
 const router = Router();
+
+router.use(authenticate);
 
 router.get('/', celebrate(getAllNotesSchema), getAllNotes);
 
