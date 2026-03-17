@@ -1,5 +1,5 @@
 import express from 'express';
-import { celebrate } from 'celebrate';
+import { celebrate, Segments } from 'celebrate';
 
 import {
   registerUser,
@@ -35,13 +35,17 @@ router.post('/refresh', refreshUserSession);
 
 router.post(
   '/request-reset-email',
-  celebrate(requestResetEmailSchema),
+  celebrate({
+    [Segments.BODY]: requestResetEmailSchema,
+  }),
   requestResetEmail
 );
 
 router.post(
   '/reset-password',
-  celebrate(resetPasswordSchema),
+  celebrate({
+    [Segments.BODY]: resetPasswordSchema,
+  }),
   resetPassword
 );
 
