@@ -12,6 +12,8 @@ import { errors } from 'celebrate';
 import { errorHandler } from './middleware/errorHandler.js';
 import cookieParser from 'cookie-parser';
 
+import userRoutes from './routes/userRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -26,6 +28,7 @@ app.use(cookieParser());
 
 app.use(notesRoutes);
 app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 
 app.use(notFoundHandler);
 
